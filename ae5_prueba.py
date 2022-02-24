@@ -1,5 +1,6 @@
 import random
 import time
+#Creamos los diccionarios Clientes y productos.
 Clientes={"nombres":["Liliana","Clara","Vicente","Diego","Alberto","Daniel","Julio","Francisca","Camila","Emilio"],
 "edad":[34,45,19,27,35,42,29,37,32,36],
 "id":["165","166","167","168","169","170","171","172","173","174"]}
@@ -31,7 +32,7 @@ print(Clientes.get("id"))
 print (Clientes.items())
 #Eliminar ultimo producto agregado
 producto_eliminado=Productos["nombres"][9]
-print("El producto eliminado está en el índice:9 de la lista de productos, y es",producto_eliminado)
+print("El producto eliminado está en el índice:9 digite la lista de productos, y es",producto_eliminado)
 del Productos["nombres"][9]
 del Productos["precios"][9]
 del Productos["color"][9]
@@ -55,8 +56,9 @@ nuevo_id=[lista_id[0]+("_pilot"),lista_id[1]+("_pilot"),lista_id[2]+("_pilot"),l
 lista_id[5]+("_pilot"),lista_id[6]+("_pilot"),lista_id[7]+("_pilot"),lista_id[8]+("_pilot"),lista_id[9]+("_pilot")]
 print("Los nuevos id de los clientes son:",nuevo_id)
 #Eliminar los ultimos ID_clientes en el listado.
-del Clientes["id"][6:9]
-print("Los id eliminados son:",Clientes["id"][6:9],"y corresponden a",Clientes["nombres"][6:9])
+print("Los id eliminados son:",Clientes["id"][-4::],"y corresponden a",Clientes["nombres"][-4::])
+del Clientes["id"][-4::]
+print("Los id que quedan en la lista son:",Clientes["id"])
 
 
 
