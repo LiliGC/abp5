@@ -12,24 +12,34 @@ Productos={"nombres":["te","cafe","jugo","cerveza","vino","vodka","tequila","ron
 tamaño_clientes=10  
 tamaño_productos=10
 
-#print(Clientes.get("nombres")) #Mostrar  clientes
-#print(Productos.get("nombres"))#Mostrar listado de productos
+#Mostrar  clientes
+print("El listado de Clientes está compuesto por:")
+
+print(Clientes.get("nombres"))
+
+#Mostrar listado de productos
+print("El listado de Productos está compuesto por:")
+print(Productos.get("nombres"))
 #print(Clientes.keys()) #Mostrar claves
 #print(Clientes.values()) #Mostrar valores
 #print(Productos.items())
-#ELiminar clientes
+
+#ELiminar clientes: Primero me muestra la lista de clientes:
 print(Clientes["nombres"])
-print (Clientes.items())
+
 #Elige el indice a eliminar de la lista
 cliente_eliminado=random.randint(0,9) 
 print("El cliente eliminado está en el índice:",cliente_eliminado,"de la lista nombres en el diccionario, y es",Clientes["nombres"][cliente_eliminado])
-#del Clientes["nombres"][cliente_eliminado] #Elimina de la lista de nombres
-#del Clientes["edad"][cliente_eliminado] #Elimina de la lista de edad
-#del Clientes["id"][cliente_eliminado] #elimina de la lista de clientes
+#Elimina de la lista de nombres
+del Clientes["nombres"][cliente_eliminado] 
+#Elimina de la lista de edad
+del Clientes["edad"][cliente_eliminado] 
+#elimina de la lista de clientes
+del Clientes["id"][cliente_eliminado] 
 print(Clientes.get("nombres"))
 print(Clientes.get("edad"))
 print(Clientes.get("id"))
-print (Clientes.items())
+
 #Eliminar ultimo producto agregado
 producto_eliminado=Productos["nombres"][9]
 print("El producto eliminado está en el índice:9 digite la lista de productos, y es",producto_eliminado)
@@ -38,23 +48,34 @@ del Productos["precios"][9]
 del Productos["color"][9]
 del Productos["id"][9]
 print(Productos.items())
+
 #Mostrar claves del diccionario Clientes
-print(Clientes.keys())
-time.sleep(2)
-print(Clientes.values())
-time.sleep(3)
+for key in Clientes.keys():
+    print (key)
+    time.sleep(2)
+
+for value in Clientes.values():
+    print(value)
+    time.sleep(3)
+
 #Mostrar claves del diccionario Productos
-print(Productos.keys())
-time.sleep(2)
-print(Productos.values())
-time.sleep(3)
+for key in Productos.keys():
+    print(key)
+    time.sleep(2)
+
+for value in Productos.values():
+    print(value)
+    time.sleep(3)
+
 #Mostrar id de los clientes
 print("El id de los clientes es:",Clientes.get("id"))
-#Modifique todos los ID de los clientes. Agregue la siguiente linea _piloto.
+
+#Modifique todos los ID de los clientes. Agregue la siguiente linea _piloto. Aqui debo sacar la de cliente eliminado o hacemos una copia del diccionario para eliminar de ahi.
 lista_id=Clientes["id"]
 nuevo_id=[lista_id[0]+("_pilot"),lista_id[1]+("_pilot"),lista_id[2]+("_pilot"),lista_id[3]+("_pilot"),lista_id[4]+("_pilot"),
 lista_id[5]+("_pilot"),lista_id[6]+("_pilot"),lista_id[7]+("_pilot"),lista_id[8]+("_pilot"),lista_id[9]+("_pilot")]
 print("Los nuevos id de los clientes son:",nuevo_id)
+
 #Eliminar los ultimos ID_clientes en el listado.
 print("Los id eliminados son:",Clientes["id"][-4::],"y corresponden a",Clientes["nombres"][-4::])
 del Clientes["id"][-4::]
