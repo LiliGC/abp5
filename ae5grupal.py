@@ -34,19 +34,23 @@ for i in range(tamaño_productos):
     Productos["color"].append(color)
     #La cuarta lista es para la identificación(id) de los productos
     Productos["id"].append(id)
+
 #Mostrar los valores en el diccionario Clientes
 for i in range(tamaño_clientes):
     print("Mostrando los datos del cliente", i+1)
     print("Nombre:",Clientes["nombres"][i], "id",Clientes["id"][i]) 
+
 #Mostrar listado de productos
 print("Mostrando listado de productos:")
 print(Productos.get("nombres"),Productos.get("precios"))
+
 #Eliminar Clientes
 cliente_eliminado=random.randint(0,9)
 print("El cliente eliminado está en el índice:",cliente_eliminado,"de la lista nombres en el diccionario, y es",Clientes["nombres"][cliente_eliminado])
 del Clientes["nombres"][cliente_eliminado]
 del Clientes["edad"][cliente_eliminado]
 del Clientes["id"][cliente_eliminado]
+
 #Eliminar ultimo producto agregado
 producto_eliminado=Productos["nombres"][4]
 print("El producto eliminado está en el índice:4 de la lista de productos, y es",producto_eliminado)
@@ -55,16 +59,25 @@ del Productos["precios"][4]
 del Productos["color"][4]
 del Productos["id"][4]
 print(Productos.items())
+
 #Mostrar claves del diccionario Clientes
-print(Clientes.keys())
-time.sleep(2)
-print(Clientes.values())
-time.sleep(3)
+for key in Clientes.keys():
+    print (key)
+    time.sleep(2)
+
+for value in Clientes.values():
+    print(value)
+    time.sleep(3)
+
 #Mostrar claves del diccionario Productos
-print(Productos.keys())
-time.sleep(2)
-print(Productos.values())
-time.sleep(3)
+for key in Productos.keys():
+    print(key)
+    time.sleep(2)
+
+for value in Productos.values():
+    print(value)
+    time.sleep(3)
+
 #Mostrar id de los clientes
 print("El id de los clientes es:",Clientes.get("id"))
 
@@ -75,6 +88,6 @@ lista_id[5]+("_pilot"),lista_id[6]+("_pilot"),lista_id[7]+("_pilot"),lista_id[8]
 print("Los nuevos id de los clientes son:",nuevo_id)
 
 #Eliminar los ultimos ID_clientes en el listado.
-print(Clientes["id"][-4::])
+print("Los id eliminados son:",Clientes["id"][-4::],"y corresponden a",Clientes["nombres"][-4::])
 del Clientes["id"][-4::]
-print("Los id eliminados son:",Clientes["id"],"y corresponden a",Clientes["nombres"][-4::])
+print("Los id que quedan en la lista son:",Clientes["id"])
