@@ -34,9 +34,10 @@ del Clientes["nombres"][cliente_eliminado]
 del Clientes["edad"][cliente_eliminado] 
 #elimina de la lista de clientes
 del Clientes["id"][cliente_eliminado] 
+print("Los datos del Diccionario Clientes luego de la actualización:","\n")
 print(Clientes.get("nombres"))
 print(Clientes.get("edad"))
-print(Clientes.get("id"))
+print(Clientes.get("id"),"\n")
 
 #Eliminar ultimo producto agregado
 producto_eliminado=Productos["nombres"][-1]
