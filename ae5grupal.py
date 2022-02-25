@@ -8,7 +8,7 @@ Compras={"nombres":[],"cantidad":[]}
 tamaño_clientes=10  
 tamaño_productos=5
 #Leemos los datos y los agregamos los clientes
-print("-------------Bienvenido a Te lo Vendo Market---------------","\n")
+print("-------------Bienvenido a Te lo Vendo Market--------------","\n")
 for i in range(tamaño_clientes):
     print("Ingrese los datos del cliente",i+1)
     nombre=input("Nombre: ").title()
@@ -37,13 +37,12 @@ for i in range(tamaño_productos):
     Productos["id"].append(id)
 
 #Mostrar los valores en el diccionario Clientes
-for i in range(tamaño_clientes):
-    print("Mostrando los datos del cliente", i+1)
-    print("Nombre:",Clientes["nombres"][i], "id:",Clientes["id"][i],"\n") 
+print("Mostrando los datos del cliente","\n")
+print(Clientes.get("nombres"), Clientes.get("id"))
 
 #Mostrar listado de productos
 print("Mostrando listado de productos:","\n")
-print(Productos.get("nombres"),Productos.get("precios"),"\n")
+print("nombres:",Productos.get("nombres"),"\n",Productos.get("precio"),"\n")
 
 #Eliminar Clientes al azar usando random.
 cliente_eliminado=random.randint(0,9)
@@ -52,7 +51,7 @@ del Clientes["nombres"][cliente_eliminado]
 del Clientes["edad"][cliente_eliminado]
 del Clientes["id"][cliente_eliminado]
 
-#Eliminar ultimo producto agregado
+#Eliminar último producto agregado
 producto_eliminado=Productos["nombres"][-1]
 print("El producto eliminado está en el índice: -1 de la lista de productos, y es",producto_eliminado,"\n")
 del Productos["nombres"][-1]
@@ -62,7 +61,7 @@ del Productos["id"][-1]
 print("Los productos que quedan disponibles son",Productos.items(),"\n")
 
 #Mostrar claves del diccionario Clientes
-print("Las claves del diccionario Cliente son las siguientes:","\n")
+print("\n","Las claves del diccionario Cliente son las siguientes:","\n")
 for key in Clientes.keys():
     print (key)
     time.sleep(2)
@@ -85,7 +84,8 @@ for value in Productos.values():
 print("Los id de los clientes son:",Clientes.get("id"),"\n")
 
 #Modifique todos los ID de los clientes. Agregue la siguiente linea _piloto. 
-# Aqui creo una lista con los nuevos id con la que luego actualizo el diccionario Clientes.
+# Aqui creo una lista con los nuevos id con la que luego creo el diccionario up_dict,
+# con el que actualizo el diccionario Clientes.
 lista_nuevoid=[]
 for i in Clientes["id"]:
     nuevo_id=(i+"_piloto")
