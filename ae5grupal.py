@@ -56,7 +56,7 @@ del Clientes["id"][cliente_eliminado]
 producto_eliminado=Productos["nombres"][-1]
 print("El producto eliminado está en el índice: -1 de la lista de productos, y es",producto_eliminado,"\n")
 del Productos["nombres"][-1]
-del Productos["precios"][-1]
+del Productos["precio"][-1]
 del Productos["color"][-1]
 del Productos["id"][-1]
 print("Los productos que quedan disponibles son",Productos.items(),"\n")
