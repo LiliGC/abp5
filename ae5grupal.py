@@ -8,8 +8,9 @@ Compras={"nombres":[],"cantidad":[]}
 tamaño_clientes=10  
 tamaño_productos=5
 #Leemos los datos y los agregamos los clientes
+print("-------------Bienvenido a Te lo Vendo Market---------------","\n")
 for i in range(tamaño_clientes):
-    print("Ingrese los datos de la persona",i+1)
+    print("Ingrese los datos del cliente",i+1)
     nombre=input("Nombre: ").title()
     edad=int(input("edad: "))
     id=input("Id: ")
@@ -38,54 +39,61 @@ for i in range(tamaño_productos):
 #Mostrar los valores en el diccionario Clientes
 for i in range(tamaño_clientes):
     print("Mostrando los datos del cliente", i+1)
-    print("Nombre:",Clientes["nombres"][i], "id",Clientes["id"][i]) 
+    print("Nombre:",Clientes["nombres"][i], "id:",Clientes["id"][i],"\n") 
 
 #Mostrar listado de productos
-print("Mostrando listado de productos:")
-print(Productos.get("nombres"),Productos.get("precios"))
+print("Mostrando listado de productos:","\n")
+print(Productos.get("nombres"),Productos.get("precios"),"\n")
 
-#Eliminar Clientes
+#Eliminar Clientes al azar usando random.
 cliente_eliminado=random.randint(0,9)
-print("El cliente eliminado está en el índice:",cliente_eliminado,"de la lista nombres en el diccionario, y es",Clientes["nombres"][cliente_eliminado])
+print("El cliente eliminado está en el índice:",cliente_eliminado,"de la lista nombres en el diccionario, y es",Clientes["nombres"][cliente_eliminado],"\n")
 del Clientes["nombres"][cliente_eliminado]
 del Clientes["edad"][cliente_eliminado]
 del Clientes["id"][cliente_eliminado]
 
 #Eliminar ultimo producto agregado
-producto_eliminado=Productos["nombres"][4]
-print("El producto eliminado está en el índice:4 de la lista de productos, y es",producto_eliminado)
-del Productos["nombres"][4]
-del Productos["precios"][4]
-del Productos["color"][4]
-del Productos["id"][4]
-print(Productos.items())
+producto_eliminado=Productos["nombres"][-1]
+print("El producto eliminado está en el índice: -1 de la lista de productos, y es",producto_eliminado,"\n")
+del Productos["nombres"][-1]
+del Productos["precios"][-1]
+del Productos["color"][-1]
+del Productos["id"][-1]
+print("Los productos que quedan disponibles son",Productos.items(),"\n")
 
 #Mostrar claves del diccionario Clientes
+print("Las claves del diccionario Cliente son las siguientes:","\n")
 for key in Clientes.keys():
     print (key)
     time.sleep(2)
-
+print("Los valores del diccionario Cliente son los siguientes:","\n")
 for value in Clientes.values():
     print(value)
     time.sleep(3)
 
 #Mostrar claves del diccionario Productos
+print("\n","Las claves del diccionario Productos son las siguientes:","\n")
 for key in Productos.keys():
     print(key)
     time.sleep(2)
-
+print("Los valores del diccionario Productos son los siguientes:","\n")
 for value in Productos.values():
     print(value)
     time.sleep(3)
 
 #Mostrar id de los clientes
-print("El id de los clientes es:",Clientes.get("id"))
+print("Los id de los clientes son:",Clientes.get("id"),"\n")
 
-#Modifique todos los ID de los clientes. Agregue la siguiente linea _piloto.
-lista_id=Clientes["id"]
-nuevo_id=[lista_id[0]+("_pilot"),lista_id[1]+("_pilot"),lista_id[2]+("_pilot"),lista_id[3]+("_pilot"),lista_id[4]+("_pilot"),
-lista_id[5]+("_pilot"),lista_id[6]+("_pilot"),lista_id[7]+("_pilot"),lista_id[8]+("_pilot"),lista_id[9]+("_pilot")]
-print("Los nuevos id de los clientes son:",nuevo_id)
+#Modifique todos los ID de los clientes. Agregue la siguiente linea _piloto. 
+# Aqui creo una lista con los nuevos id con la que luego actualizo el diccionario Clientes.
+lista_nuevoid=[]
+for i in Clientes["id"]:
+    nuevo_id=(i+"_piloto")
+    lista_nuevoid.append(nuevo_id)
+print(lista_nuevoid,"\n")
+up_dict={"id":lista_nuevoid}
+Clientes.update(up_dict)
+print("Los nuevos id de los clientes son:",Clientes["id"],"\n")
 
 #Eliminar los ultimos ID_clientes en el listado.
 print("Los id eliminados son:",Clientes["id"][-4::],"y corresponden a",Clientes["nombres"][-4::])
