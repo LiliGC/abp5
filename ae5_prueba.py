@@ -18,6 +18,7 @@ print("El listado de Clientes está compuesto por:")
 print(Clientes.get("nombres"))
 
 #Mostrar listado de productos
+
 print("El listado de Productos está compuesto por:")
 print(Productos.get("nombres"))
 #print(Clientes.keys()) #Mostrar claves
