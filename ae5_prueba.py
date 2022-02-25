@@ -9,28 +9,25 @@ Productos={"nombres":["te","cafe","jugo","cerveza","vino","vodka","tequila","ron
 "color":["verde","negro","morado","dorado","rojo","blanco","amarillo","cafe","naranjo","rosa"],
 "id":["1","2","3","4","5","6","7","8","9","10"]}
 
-tamaño_clientes=10  
-tamaño_productos=10
-
 #Mostrar  clientes
-print("El listado de Clientes está compuesto por:")
+print("Bienvenido a Te lo Vendo Market","\n")
+print("El listado de Clientes está compuesto por:","\n")
 
-print(Clientes.get("nombres"))
+print(Clientes.get("nombres"),"\n")
 
 #Mostrar listado de productos
 
-print("El listado de Productos está compuesto por:")
-print(Productos.get("nombres"))
-#print(Clientes.keys()) #Mostrar claves
-#print(Clientes.values()) #Mostrar valores
+print("El listado de Productos está compuesto por:\n")
+print(Productos.get("nombres"),"\n")
+
 #print(Productos.items())
 
 #ELiminar clientes: Primero me muestra la lista de clientes:
-print(Clientes["nombres"])
+print("Los clientes registados son",Clientes["nombres"],"\n")
 
 #Elige el indice a eliminar de la lista
 cliente_eliminado=random.randint(0,9) 
-print("El cliente eliminado está en el índice:",cliente_eliminado,"de la lista nombres en el diccionario, y es",Clientes["nombres"][cliente_eliminado])
+print("El cliente eliminado está en el índice:",cliente_eliminado,"de la lista nombres en el diccionario, y es",Clientes["nombres"][cliente_eliminado],"\n")
 #Elimina de la lista de nombres
 del Clientes["nombres"][cliente_eliminado] 
 #Elimina de la lista de edad
@@ -42,40 +39,46 @@ print(Clientes.get("edad"))
 print(Clientes.get("id"))
 
 #Eliminar ultimo producto agregado
-producto_eliminado=Productos["nombres"][9]
-print("El producto eliminado está en el índice:9 digite la lista de productos, y es",producto_eliminado)
-del Productos["nombres"][9]
-del Productos["precios"][9]
-del Productos["color"][9]
-del Productos["id"][9]
-print(Productos.items())
+producto_eliminado=Productos["nombres"][-1]
+print("El producto eliminado está en el índice:-1 y es",producto_eliminado,"\n")
+del Productos["nombres"][-1]
+del Productos["precios"][-1]
+del Productos["color"][-1]
+del Productos["id"][-1]
 
 #Mostrar claves del diccionario Clientes
+print("Las claves del diccionario de Clientes son las siguientes:","\n")
 for key in Clientes.keys():
     print (key)
     time.sleep(2)
-
+print("\n","Los valores del diccionario de  Clientes son los siguientes:","\n")
 for value in Clientes.values():
     print(value)
     time.sleep(3)
 
 #Mostrar claves del diccionario Productos
+print("\n","Las claves del diccionario Productos son las siguientes:","\n")
 for key in Productos.keys():
     print(key)
     time.sleep(2)
-
+print("Los valores del diccionario Productos son los siguientes:","\n")
 for value in Productos.values():
     print(value)
     time.sleep(3)
 
-#Mostrar id de los clientes
-print("El id de los clientes es:",Clientes.get("id"))
+#Mostrar id de los clientes existentes
+print("\n","Los id de los clientes son:",Clientes.get("id"))
 
-#Modifique todos los ID de los clientes. Agregue la siguiente linea _piloto. Aqui debo sacar la de cliente eliminado o hacemos una copia del diccionario para eliminar de ahi.
-lista_id=Clientes["id"]
-nuevo_id=[lista_id[0]+("_pilot"),lista_id[1]+("_pilot"),lista_id[2]+("_pilot"),lista_id[3]+("_pilot"),lista_id[4]+("_pilot"),
-lista_id[5]+("_pilot"),lista_id[6]+("_pilot"),lista_id[7]+("_pilot"),lista_id[8]+("_pilot"),lista_id[9]+("_pilot")]
-print("Los nuevos id de los clientes son:",nuevo_id)
+#Modifique todos los ID de los clientes. Agregue la siguiente linea _piloto. 
+# Aqui creo una lista con los nuevos id con la que luego actualizo el diccionario Clientes.
+lista_nuevoid=[]
+for i in Clientes["id"]:
+    nuevo_id=(i+"_piloto")
+    lista_nuevoid.append(nuevo_id)
+print(lista_nuevoid,"\n")
+up_dict={"id":lista_nuevoid}
+Clientes.update(up_dict)
+print("Los nuevos id de los clientes son:",Clientes["id"],"\n")
 
 #Eliminar los ultimos ID_clientes en el listado.
 print("Los id eliminados son:",Clientes["id"][-4::],"y corresponden a",Clientes["nombres"][-4::])
