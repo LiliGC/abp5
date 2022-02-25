@@ -67,11 +67,14 @@ print(Productos.values())
 time.sleep(3)
 #Mostrar id de los clientes
 print("El id de los clientes es:",Clientes.get("id"))
+
 #Modifique todos los ID de los clientes. Agregue la siguiente linea _piloto.
 lista_id=Clientes["id"]
 nuevo_id=[lista_id[0]+("_pilot"),lista_id[1]+("_pilot"),lista_id[2]+("_pilot"),lista_id[3]+("_pilot"),lista_id[4]+("_pilot"),
 lista_id[5]+("_pilot"),lista_id[6]+("_pilot"),lista_id[7]+("_pilot"),lista_id[8]+("_pilot"),lista_id[9]+("_pilot")]
 print("Los nuevos id de los clientes son:",nuevo_id)
+
 #Eliminar los ultimos ID_clientes en el listado.
-del Clientes["id"][6:9]
-print("Los id eliminados son:",Clientes["id"][6:9],"y corresponden a",Clientes["nombres"][6:9])
+print(Clientes["id"][-4::])
+del Clientes["id"][-4::]
+print("Los id eliminados son:",Clientes["id"],"y corresponden a",Clientes["nombres"][-4::])
